@@ -3,6 +3,6 @@ package bufrepro.modb;
 
 option go_package = "bufrepro/x/modb/types";
 
-message Extension {
-  
-}
+import "bufrepro/moda/base.proto";
+
+message Extension {}
