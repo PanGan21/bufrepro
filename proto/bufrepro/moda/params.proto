@@ -1,0 +1,15 @@
+syntax = "proto3";
+package bufrepro.moda;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "bufrepro/x/moda/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (amino.name) = "bufrepro/x/moda/Params";
+  option (gogoproto.equal) = true;
+
+  
+}

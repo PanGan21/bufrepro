@@ -1,0 +1,17 @@
+syntax = "proto3";
+package bufrepro.moda;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "bufrepro/moda/params.proto";
+
+option go_package = "bufrepro/x/moda/types";
+
+// GenesisState defines the moda module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}
