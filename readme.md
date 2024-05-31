@@ -1,6 +1,6 @@
 # bufrepro
 
-**bufrepro** is a blockchain scaffolded with Ignite cli. It's purpose is to showcase a bug in protobuf generation.
+**bufrepro** is a blockchain scaffolded with Ignite cli v28.0.0. It's purpose is to showcase a bug in protobuf generation.
 
 ## Details
 
