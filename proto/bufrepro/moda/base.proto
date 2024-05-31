@@ -1,0 +1,8 @@
+syntax = "proto3";
+package bufrepro.moda;
+
+option go_package = "bufrepro/x/moda/types";
+
+message Base {
+  
+}
