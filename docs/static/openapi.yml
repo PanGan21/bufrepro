@@ -4,10 +4,66 @@ info:
   name: ''
   description: ''
 paths:
-  /bufrepro/moda/params:
+  /bufrepro.moda.Msg/UpdateParams:
+    post:
+      summary: |-
+        UpdateParams defines a (governance) operation for updating the module
+        parameters. The authority defaults to the x/gov module account.
+      operationId: BufreproModaMsg_UpdateParams
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            description: >-
+              MsgUpdateParamsResponse defines the response structure for
+              executing a
+
+              MsgUpdateParams message.
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: body
+          description: MsgUpdateParams is the Msg/UpdateParams request type.
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              authority:
+                type: string
+                description: >-
+                  authority is the address that controls the module (defaults to
+                  x/gov unless overwritten).
+              params:
+                description: |-
+                  params defines the module parameters to update.
+
+                  NOTE: All parameters must be supplied.
+                type: object
+            description: MsgUpdateParams is the Msg/UpdateParams request type.
+      tags:
+        - Msg
+  /bufrepro/modb/params:
     get:
       summary: Parameters queries the parameters of the module.
-      operationId: BufreproModaQuery_Params
+      operationId: BufreproModbQuery_Params
       responses:
         '200':
           description: A successful response.
@@ -40,12 +96,12 @@ paths:
                   additionalProperties: {}
       tags:
         - Query
-  /bufrepro.moda.Msg/UpdateParams:
+  /bufrepro.modb.Msg/UpdateParams:
     post:
       summary: |-
         UpdateParams defines a (governance) operation for updating the module
         parameters. The authority defaults to the x/gov module account.
-      operationId: BufreproModaMsg_UpdateParams
+      operationId: BufreproModbMsg_UpdateParams
       responses:
         '200':
           description: A successful response.
@@ -18877,6 +18933,29 @@ paths:
       tags:
         - Msg
 definitions:
+  bufrepro.moda.MsgUpdateParams:
+    type: object
+    properties:
+      authority:
+        type: string
+        description: >-
+          authority is the address that controls the module (defaults to x/gov
+          unless overwritten).
+      params:
+        description: |-
+          params defines the module parameters to update.
+
+          NOTE: All parameters must be supplied.
+        type: object
+    description: MsgUpdateParams is the Msg/UpdateParams request type.
+  bufrepro.moda.MsgUpdateParamsResponse:
+    type: object
+    description: |-
+      MsgUpdateParamsResponse defines the response structure for executing a
+      MsgUpdateParams message.
+  bufrepro.moda.Params:
+    type: object
+    description: Params defines the parameters for the module.
   google.protobuf.Any:
     type: object
     properties:
@@ -19204,17 +19283,17 @@ definitions:
                   "@type": "type.googleapis.com/google.protobuf.Duration",
                   "value": "1.212s"
                 }
-  bufrepro.moda.Params:
+  bufrepro.modb.Params:
     type: object
     description: Params defines the parameters for the module.
-  bufrepro.moda.QueryParamsResponse:
+  bufrepro.modb.QueryParamsResponse:
     type: object
     properties:
       params:
         description: params holds all the parameters of this module.
         type: object
     description: QueryParamsResponse is response type for the Query/Params RPC method.
-  bufrepro.moda.MsgUpdateParams:
+  bufrepro.modb.MsgUpdateParams:
     type: object
     properties:
       authority:
@@ -19229,7 +19308,7 @@ definitions:
           NOTE: All parameters must be supplied.
         type: object
     description: MsgUpdateParams is the Msg/UpdateParams request type.
-  bufrepro.moda.MsgUpdateParamsResponse:
+  bufrepro.modb.MsgUpdateParamsResponse:
     type: object
     description: |-
       MsgUpdateParamsResponse defines the response structure for executing a

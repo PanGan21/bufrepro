@@ -4,8 +4,11 @@ import (
 	"time"
 
 	modamodulev1 "bufrepro/api/bufrepro/moda/module"
+	modbmodulev1 "bufrepro/api/bufrepro/modb/module"
 	_ "bufrepro/x/moda/module" // import for side-effects
 	modamoduletypes "bufrepro/x/moda/types"
+	_ "bufrepro/x/modb/module" // import for side-effects
+	modbmoduletypes "bufrepro/x/modb/types"
 	runtimev1alpha1 "cosmossdk.io/api/cosmos/app/runtime/v1alpha1"
 	appv1alpha1 "cosmossdk.io/api/cosmos/app/v1alpha1"
 	authmodulev1 "cosmossdk.io/api/cosmos/auth/module/v1"
@@ -111,6 +114,7 @@ var (
 		circuittypes.ModuleName,
 		// chain modules
 		modamoduletypes.ModuleName,
+		modbmoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/initGenesis
 	}
 
@@ -136,6 +140,7 @@ var (
 		ibcfeetypes.ModuleName,
 		// chain modules
 		modamoduletypes.ModuleName,
+		modbmoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/beginBlockers
 	}
 
@@ -155,6 +160,7 @@ var (
 		ibcfeetypes.ModuleName,
 		// chain modules
 		modamoduletypes.ModuleName,
+		modbmoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/endBlockers
 	}
 
@@ -307,6 +313,10 @@ var (
 			{
 				Name:   modamoduletypes.ModuleName,
 				Config: appconfig.WrapAny(&modamodulev1.Module{}),
+			},
+			{
+				Name:   modbmoduletypes.ModuleName,
+				Config: appconfig.WrapAny(&modbmodulev1.Module{}),
 			},
 			// this line is used by starport scaffolding # stargate/app/moduleConfig
 		},

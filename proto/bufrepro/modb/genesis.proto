@@ -1,0 +1,17 @@
+syntax = "proto3";
+package bufrepro.modb;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "bufrepro/modb/params.proto";
+
+option go_package = "bufrepro/x/modb/types";
+
+// GenesisState defines the modb module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}

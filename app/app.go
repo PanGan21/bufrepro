@@ -54,6 +54,7 @@ import (
 	ibckeeper "github.com/cosmos/ibc-go/v8/modules/core/keeper"
 
 	modamodulekeeper "bufrepro/x/moda/keeper"
+	modbmodulekeeper "bufrepro/x/modb/keeper"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 
 	"bufrepro/docs"
@@ -117,6 +118,7 @@ type App struct {
 	ScopedICAHostKeeper       capabilitykeeper.ScopedKeeper
 
 	ModaKeeper modamodulekeeper.Keeper
+	ModbKeeper modbmodulekeeper.Keeper
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
 	// simulation manager
@@ -255,6 +257,7 @@ func New(
 		&app.ConsensusParamsKeeper,
 		&app.CircuitBreakerKeeper,
 		&app.ModaKeeper,
+		&app.ModbKeeper,
 		// this line is used by starport scaffolding # stargate/app/keeperDefinition
 	); err != nil {
 		panic(err)
